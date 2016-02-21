@@ -4,9 +4,9 @@
 <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 <script>
 $(document).ready(function() {
-  var leaderboardRef = new Firebase("https://reactive-poc.firebaseio.com/");
+  var ref = new Firebase("https://reactive-poc.firebaseio.com/");
 
-  leaderboardRef.on("child_added", function(snapshot) {
+  ref.on("child_added", function(snapshot) {
     $("ul").append( $("<li></li>").text(snapshot.key() + ": " + snapshot.val()) );
   });
 });

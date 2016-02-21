@@ -12,9 +12,9 @@ var FirebaseListing = React.createClass({
   displayName: "FirebaseListing",
 
   getInitialState: function () {
-    var leaderboardRef = new Firebase("https://reactive-poc.firebaseio.com/");
+    var ref = new Firebase("https://reactive-poc.firebaseio.com/");
     var self = this;
-    leaderboardRef.on("child_added", function (snapshot) {
+    ref.on("child_added", function (snapshot) {
       self.setState(function (previousState) {
         return {
           list: previousState.list.concat([{ key: snapshot.key(), val: snapshot.val() }])
