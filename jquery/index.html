@@ -1,0 +1,25 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+<script>
+$(document).ready(function() {
+  var leaderboardRef = new Firebase("https://reactive-poc.firebaseio.com/");
+
+  leaderboardRef.on("child_added", function(snapshot) {
+    $("ul").append( $("<li></li>").text(snapshot.key() + ": " + snapshot.val()) );
+  });
+});
+
+</script>
+</head>
+<body>
+
+<h1>Elements</h1>
+<ul>
+
+</ul>
+
+
+</body>
+</html>
